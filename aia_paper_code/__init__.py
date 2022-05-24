@@ -1,3 +1,4 @@
+from argparse import ArgumentError
 from typing import Callable, Generator, Sequence, Any
 from pathlib import Path
 from urllib.request import urlretrieve
@@ -70,14 +71,7 @@ class MaskingLanguageBias:
         if params.get("wikidata_person_names_path"):
             wikidata_path = Path(params["wikidata_person_names_path"])
         else:
-            wikidata_path = Path.home() / ".iqtlabs" / "wikidata_person_names-v1.csv.gz"
-        if not wikidata_path.exists():
-            (Path.home() / ".iqtlabs").mkdir(exist_ok=True)
-            urlretrieve(
-                "https://iqtlabs-aia-datasets.s3.amazonaws.com/wikidata_person_names-v1.csv.gz",
-                wikidata_path,
-            )
-
+            raise ArgumentError("This version doesn't download datasets and must be used with the wikidata_person_names_path parameter.")
         wikidata = pd.read_csv(wikidata_path)
 
         sentiment = pipeline(
