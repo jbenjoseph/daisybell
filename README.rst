@@ -8,6 +8,7 @@ to point to the correct path.
 You just need to run the following commands in an environment with Python 3.8 or above.
 
 ```
+
     python setup.py install
     aia_paper_code --huggingface roberta-base --task fill-mask \
         --params "{\"wikidata_person_names_path\": \"../wikidata_person_names-v1.csv.gz\"}" \
