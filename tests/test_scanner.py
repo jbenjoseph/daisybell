@@ -1,4 +1,4 @@
-from daisybell import scan
+from aia_paper_code import scan
 from transformers import pipeline
 
 

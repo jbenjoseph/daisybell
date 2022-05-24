@@ -8,7 +8,7 @@
             "name": "Run with roberta-base and fill-mask",
             "type": "python",
             "request": "launch",
-            "module": "daisybell",
+            "module": "aia_paper_code",
             "args": [
                 "--huggingface",
                 "roberta-base",

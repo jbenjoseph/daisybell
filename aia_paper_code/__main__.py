@@ -8,7 +8,7 @@ from transformers import pipeline
 from tabulate import tabulate
 import pandas as pd
 
-from daisybell import scan
+from aia_paper_code import scan
 
 
 def create_file_output(

@@ -1,57 +1,20 @@
-daisybell
-~~~~~~~~~~
+Instructions to reproduce masking experiment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A scanner that will scan your AI models for problems. Currently it focuses on bias testing. It is currently pre-alpha.
+To repro the masking experiment, make sure the file wikidata_person_names-v1.csv.gz is in
+your current working directory.
 
+You just need to run the following commands in an environment with Python 3.8 or above.
 
-How to Use
-~~~~~~~~~~
-
-First install it:
-
-::
-
-    pip install daisybell
-
-
-Run it in this manner (currently supports models from HuggingFace's repository):
-
-::
-
-    daisybell --huggingface roberta-base --task fill-mask
+```
+    python setup.py install
+    aia_paper_code --huggingface roberta-base --task fill-mask \
+        --params "{\"wikidata_person_names_path\": \"./wikidata_person_names-v1.csv.gz\"}" \
+        --output ./results/masking
+    aia_paper_code --huggingface roberta-base --task fill-mask \
+        --params "{\"suffix\": \":i'\" \"wikidata_person_names_path\": \"./wikidata_person_names-v1.csv.gz\"}" \
+        --output ./results/masking-with-exploit
+    pip uninstall aia_paper_code
 
 
-The scan can output files for further analysis:
-
-::
-
-    daisybell --huggingface roberta-base --task fill-mask --output results/roberta-base
-
-Here is another example with a different bias task.
-
-::
-
-    daisybell --huggingface cross-encoder/nli-distilroberta-base --task zero-shot-classification
-
-That's it for now. More will come.
-
-
-Future Work
-~~~~~~~~~~~~
-
-* More bias tests. More metrics for bias testing based on the research in the field.
-* Integration with other types of testing (eg. adversarial robustness)
-* More kinds of models besides HuggingFace models. We are especially interested in MLFlow integration.
-* Documentation.
-
-Please contribute if you can. Help is always helpful.
-
-License
-~~~~~~~
-
-Apache
-
-Credit
-~~~~~~
-
-A project of IQT Labs.
+The results in CSV format will be in those directories.

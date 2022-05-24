@@ -4,15 +4,15 @@ with open("requirements.txt") as fd:
     install_requires = fd.read().splitlines()
 
 setup(
-    name="daisybell",
+    name="aia_paper_code",
     version="0.3.2",
     description="Scan AI models for problems",
     long_description=open("README.rst").read(),
     keywords="machine_learning artificial_intelligence",
-    author="JJ Ben-Joseph",
-    author_email="jbenjoseph@iqt.org",
+    author="Anonymous author",
+    author_email="no_email@example.com",
     python_requires=">=3.8",
-    url="https://github.com/IQTLabs/daisybell",
+    url="https://example.com/",
     license="Apache",
     classifiers=[
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -25,5 +25,5 @@ setup(
     packages=find_packages(),
     install_requires=install_requires,
     tests_require=["pytest", "pre-commit"],
-    entry_points={"console_scripts": ["daisybell = daisybell.__main__:main"]},
+    entry_points={"console_scripts": ["aia_paper_code = aia_paper_code.__main__:main"]},
 )
